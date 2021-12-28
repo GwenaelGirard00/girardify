@@ -1,5 +1,14 @@
+:root {
+    --black: #222;
+    --primary: #81b71a;
+}
+
 * {
     box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Open Sans', serif;
+    font-size: 100%;
 }
 
 #login {
@@ -10,4 +19,12 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+#login .btn-connection {
+    color: var(--black);
+    text-decoration: none;
+    background-color: var(--primary);
+    padding: .75em;
+    border-radius: 15px;
 }
