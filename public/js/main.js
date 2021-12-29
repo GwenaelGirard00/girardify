@@ -1,32 +1,47 @@
 (function() {
 
     const login = document.querySelector('#login');
-    const main = document.querySelector('.main');
+    const mainPage = document.querySelector('.main');
 
-    const menuElements = main.querySelectorAll('.menu li')
-    for (let i = 0; i < menuElements.length; i++) {
-        menuElements[i].addEventListener("click", function activeLink(){
-            for (let j = 0; j < menuElements.length; j++) {
-                menuElements[j].classList.remove('active')
-            }
-            menuElements[i].classList.add('active')
-        });
+    /* Active Links */
+    const menuElements = mainPage.querySelectorAll('.menu li')
+    function activeLink(){
+        menuElements.forEach((item) => 
+        item.classList.remove('active'));
+        this.classList.add('active');
+
+    }
+    menuElements.forEach((item) =>
+    item.addEventListener("click", activeLink));
+
+    const main = mainPage.querySelectorAll('main');
+    const mainStats = mainPage.querySelector('main.stats');
+    const mainPlaylists = mainPage.querySelector('main.playlists');
+    const mainAccount = mainPage.querySelector('main.account');
+
+    function hideMain() {
+        main.forEach((item) =>
+        item.classList.remove('show'));
     }
 
-    /*
-    const menu = main.querySelector('.menu');
-    const menuHeader = main.querySelector('.menu .header');
-    let menuIsDisplay = false;
-    menuHeader.addEventListener("click", function showMenu(){
-        if (menuIsDisplay) {
-            menu.classList.remove('show');
-            menuIsDisplay = false;
-        } else {
-            menu.classList.add('show');
-            menuIsDisplay = true;
-        }
+    const btnStats = mainPage.querySelector('li.stats');
+    btnStats.addEventListener("click", function showStats(){
+        hideMain();
+        mainStats.classList.add('show');
     });
-*/
+
+    const btnPlaylists = mainPage.querySelector('li.playlists');
+    btnPlaylists.addEventListener("click", function showPlaylists(){
+        hideMain();
+        mainPlaylists.classList.add('show');
+    });
+
+    const btnAccount = mainPage.querySelector('li.account');
+    btnAccount.addEventListener("click", function showAccount(){
+        hideMain();
+        mainAccount.classList.add('show');
+    });
+    
 
 
     /**
@@ -54,7 +69,7 @@
         } else {
             if (access_token) {
                 login.style.display = "none";
-                main.style.display = "block";
+                mainPage.style.display = "block";
 
                 /*Affichage des titres likés*/
                 var myHeaders = new Headers();
@@ -99,7 +114,7 @@
             }
         } else {
             login.style.display = "flex";
-            main.style.display = "none";
+            mainPage.style.display = "none";
         }
     }
 })();
