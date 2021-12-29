@@ -9,17 +9,64 @@
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/main.css">
 </head>
+
 <body>
 
     <div id="login">
-        <h1>Connectez-vous pour continuer</h1>
-        <a href="/login" class="btn-connection">se connecter</a>
-      </div>
+        <h2>Connectez-vous pour continuer</h2>
+        <a href="/login" class="btn-connection">
+            <span class="icon"></span>
+            <span class="text">se connecter</span>
+        </a>
+    </div>
 
-    <div id="liked">
+    <div class="main">
+        <aside class="menu">
+            <div class="header">
+                <h2>Menu</h2>
+                <ion-icon name="menu"></ion-icon>
+            </div>
+
+            <nav>
+                <ul>
+                    <li class="active">
+                        <a href="#">
+                            <span class="text">Statistiques</span>
+                            <span class="icon">
+                                <ion-icon name="stats"></ion-icon>
+                            </span>
+                        </a> 
+                    </li>
+                    <li>
+                        <a href="#">
+                            <span class="text">Playlists</span>
+                            <span class="icon">
+                                <ion-icon name="musical-notes"></ion-icon>
+                            </span>
+                        </a> 
+                    </li>
+                    <li>
+                        <a href="#">
+                            <span class="text">Compte</span>
+                            <span class="icon">
+                                <ion-icon name="person"></ion-icon>
+                            </span>
+                        </a> 
+                    </li>
+                    <div class="indicator"></div>
+                </ul>
+            </nav>
+        </aside>
+
+        <main>
+
+        </main>
 
     </div>
+
+    
     
     <script src="js/main.js"></script>
+    <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
 </body>
 </html>

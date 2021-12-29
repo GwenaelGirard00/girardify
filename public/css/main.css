@@ -1,14 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+
 :root {
     --black: #222;
     --primary: #81b71a;
+    
+    --transition-time: 250ms;
 }
 
 * {
     box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    font-family: 'Open Sans', serif;
-    font-size: 100%;
+    font-family: 'Open Sans', sans-serif;
 }
 
 #login {
@@ -21,10 +22,174 @@
     align-items: center;
 }
 
+#login h1 {
+    font-size: 3em;
+    margin-bottom: 1.5em;
+}
+
 #login .btn-connection {
-    color: var(--black);
-    text-decoration: none;
+    position: relative;
     background-color: var(--primary);
     padding: .75em;
     border-radius: 15px;
+    transition: 200ms;
+    overflow: hidden;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#login .btn-connection .text {
+    color: var(--black);
+    font-size: 1.25em;
+    line-height: 30px;
+    display: inline;
+    vertical-align: middle;
+}
+
+#login .btn-connection .icon {
+    position: absolute;
+    opacity: 0;
+    background-image: url('../img/spotify.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 25px;
+    height: 25px;
+    margin-right: 10px;
+    transition: var(--transition-time) ease-in-out;
+    left: -20px;
+}
+
+#login .btn-connection:hover {
+    padding-left: calc(.75em  * 2 + 20px)
+}
+
+#login .btn-connection:hover .icon {
+    left: .75em;
+    opacity: 1;
+}
+
+#login .btn-connection:active {
+    transform: scale(0.80);
+}
+
+/*******************
+MENU
+*******************/
+
+.menu {
+    position: fixed;
+    background-color: #222;
+    color: white;
+    height: 100%;
+    width: 200px;
+    left: -150px;
+    transition: var(--transition-time) ease-in-out;
+    z-index: 100;
+}
+
+.menu:hover {
+    left: 0;
+}
+
+.menu .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: .75em .75em 1em;
+}
+
+.menu .header ion-icon {
+    width: 25px;
+    height: 25px;
+    transform: rotate(90deg);
+    transition: var(--transition-time) ease-in-out;
+}
+
+.menu:hover .header ion-icon {
+    transform: rotate(0);
+}
+
+.menu ul {
+    list-style-type: none;
+    padding-left: 0;
+    margin: 0;
+    position: relative;
+    pointer-events:painted;
+}
+
+.menu.show ul {
+    pointer-events: all;
+}
+
+.menu ul li {
+    width: 100%;
+    height: 55px;
+    vertical-align: middle;
+    padding: .75em 1em;
+}
+
+.menu ul li a {
+    text-decoration: none;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.menu ul li a .icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: var(--transition-time)
+}
+
+.menu ul li a .icon ion-icon {
+    width: 25px;
+    height: 25px;
+}
+
+.menu ul li.active a .icon {
+    transform: translateX(calc(100% + 0.15em));
+}   
+
+.menu .indicator {
+    position: absolute;
+    top: 0;
+    right: -25px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: var(--primary);
+    transition: var(--transition-time);
+    z-index: -20;
+}
+
+.menu ul li.active:nth-child(1) ~ .indicator {
+    transform: translateY(calc(55px * 0));
+}
+
+.menu ul li.active:nth-child(2) ~ .indicator {
+    transform: translateY(calc(55px * 1));
+}
+
+.menu ul li.active:nth-child(3) ~ .indicator {
+    transform: translateY(calc(55px * 2));
+}
+
+/*********************************
+MAIN
+*********************************/
+.menu:hover ~ main {
+    filter: brightness(50%)
+}
+
+main {
+    padding-left: 85px;
+    background-color: white;
+    width: 100%;
+    min-height: 100vh;
+    transition: var(--transition-time) ease-in-out;
 }
