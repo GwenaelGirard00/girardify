@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>GIRARDIFY</title>
+    <link rel="icon" type="image/x-icon" href="./img/spotify-icons-logos/icons/Spotify_Icon_RGB_White.png">
 
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/main.css">
@@ -29,19 +30,19 @@
 
             <nav>
                 <ul>
-                    <li class="stats active">
+                    <li class="btn-stats">
                         <span class="text">Statistiques</span>
                         <span class="icon">
                             <ion-icon name="stats"></ion-icon>
                         </span>
                     </li>
-                    <li class="playlists">
+                    <li class="btn-playlists">
                         <span class="text">Playlists</span>
                         <span class="icon">
                             <ion-icon name="musical-notes"></ion-icon>
                         </span>
                     </li>
-                    <li class="account">
+                    <li class="btn-account active">
                         <span class="text">Compte</span>
                         <span class="icon">
                             <ion-icon name="person"></ion-icon>
@@ -52,23 +53,51 @@
             </nav>
         </aside>
 
-        <main class="stats show">
-            <h2>Statistiques</h2>
+        <main class="stats">
+            <div class="main-title">
+                <h2>Statistiques</h2>
+                <p>Sous-titre</p>
+            </div>
         </main>
 
         <main class="playlists">
-            <h2>Playlists</h2>
+            <div class="main-title">
+                <h2>Playlists</h2>
+                <p>Sous-titre</p>
+            </div>
         </main>
 
-        <main class="account">
-            <h2>Mon compte</h2>
+        <main class="account show">
+            <section class="main-title">
+                <h2>Mon compte</h2>
+                <p>Informations générales</p>
+                <div class="profile-pic">
+                    <img src="" alt="photo de profil">
+                </div>
+            </section>
+
+            <section class="profile-infos">
+                <h3>Informations du compte</h3>
+                <span class="profile-name"><strong>Nom : </strong></span>
+                <span class="profile-id"><strong>Id : </strong></span>
+                <span class="profile-email"><strong>E-mail : </strong></span>
+                <span class="profile-link"><strong>Profile : </strong><a href="" target="blank"></a></span>
+                <span class="profile-followers"><strong>Abonnés : </strong></span>
+            </section>
+
+            <section class="artwork">
+            </section>
+            
         </main>
 
     </div>
 
     
-    
+    <script src="//cdnjs.cloudflare.com/ajax/libs/handlebars.js/2.0.0-alpha.1/handlebars.min.js"></script>
+    <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
     <script src="js/main.js"></script>
+    <script src="js/account.js"></script>
+    <script src="./test.js"></script>
     <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
 </body>
 </html>

@@ -1,4 +1,4 @@
-(function() {
+(function main() {
 
     const login = document.querySelector('#login');
     const mainPage = document.querySelector('.main');
@@ -15,28 +15,28 @@
     item.addEventListener("click", activeLink));
 
     const main = mainPage.querySelectorAll('main');
-    const mainStats = mainPage.querySelector('main.stats');
-    const mainPlaylists = mainPage.querySelector('main.playlists');
-    const mainAccount = mainPage.querySelector('main.account');
+    const mainStats = mainPage.querySelector('.stats');
+    const mainPlaylists = mainPage.querySelector('.playlists');
+    const mainAccount = mainPage.querySelector('.account');
 
     function hideMain() {
         main.forEach((item) =>
         item.classList.remove('show'));
     }
 
-    const btnStats = mainPage.querySelector('li.stats');
+    const btnStats = mainPage.querySelector('.btn-stats');
     btnStats.addEventListener("click", function showStats(){
         hideMain();
         mainStats.classList.add('show');
     });
 
-    const btnPlaylists = mainPage.querySelector('li.playlists');
+    const btnPlaylists = mainPage.querySelector('.btn-playlists');
     btnPlaylists.addEventListener("click", function showPlaylists(){
         hideMain();
         mainPlaylists.classList.add('show');
     });
 
-    const btnAccount = mainPage.querySelector('li.account');
+    const btnAccount = mainPage.querySelector('.btn-account');
     btnAccount.addEventListener("click", function showAccount(){
         hideMain();
         mainAccount.classList.add('show');

@@ -1,10 +1,21 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
 
 :root {
-    --black: #222;
-    --primary: #81b71a;
+    --black: #1b1f22;
+    --white: #e2e2e2;
+    --background: #2c3134;
+    --green: #1DB954;
+    --secondary: #116A30;
     
     --transition-time: 250ms;
+
+    --icon-white: url("../img/spotify-icons-logos/icons/Spotify_Icon_RGB_White.png");
+    --icon-black: url("../img/spotify-icons-logos/icons/Spotify_Icon_RGB_Black.png");
+    --icon-green: url("../img/spotify-icons-logos/icons/Spotify_Icon_RGB_Green.png");
+
+    --logo-white: url("../img/spotify-icons-logos/logos/Spotify_Logo_RGB_White.png");
+    --logo-black: url("../img/spotify-icons-logos/logos/Spotify_Logo_RGB_Black.png");
+    --logo-green: url("../img/spotify-icons-logos/logos/Spotify_Logo_RGB_Green.png");
 }
 
 * {
@@ -12,7 +23,18 @@
     font-family: 'Open Sans', sans-serif;
 }
 
+a {
+    text-decoration: none;
+    color: var(--secondary);
+    transition: var(--transition-time) ease-in-out;
+}
+
+a:hover {
+    color: var(--green);
+}
+
 #login {
+    background-color: var(--white);
     position: fixed;
     width: 100%;
     height: 100%;
@@ -29,10 +51,10 @@
 
 #login .btn-connection {
     position: relative;
-    background-color: var(--primary);
+    background-color: var(--green);
     padding: .75em;
     border-radius: 15px;
-    transition: 200ms;
+    transition: var(--transition-time) ease-in-out;
     overflow: hidden;
     text-decoration: none;
     display: flex;
@@ -42,6 +64,7 @@
 
 #login .btn-connection .text {
     color: var(--black);
+    font-weight: 500;
     font-size: 1.25em;
     line-height: 30px;
     display: inline;
@@ -50,24 +73,22 @@
 
 #login .btn-connection .icon {
     position: absolute;
-    opacity: 0;
-    background-image: url('../img/spotify.png');
+    background-image: var(--icon-black);
     background-repeat: no-repeat;
     background-size: cover;
-    width: 25px;
-    height: 25px;
-    margin-right: 10px;
+    width: 30px;
+    height: 30px;
+    margin-right: 30px;
     transition: var(--transition-time) ease-in-out;
-    left: -20px;
+    left: -40px;
 }
 
 #login .btn-connection:hover {
-    padding-left: calc(.75em  * 2 + 20px)
+    padding-left: calc(.75em  * 2 + 30px)
 }
 
 #login .btn-connection:hover .icon {
     left: .75em;
-    opacity: 1;
 }
 
 #login .btn-connection:active {
@@ -176,7 +197,7 @@ MENU
     width: 50px;
     height: 50px;
     border-radius: 50%;
-    background-color: var(--primary);
+    background-color: var(--green);
     transition: var(--transition-time);
     z-index: 0;
 }
@@ -203,16 +224,85 @@ MAIN
 main {
     display: none;
     padding: 1em 1em 1em 6em;
-    background-color: white;
+    background-color: var(--background);
     width: 100%;
     min-height: 100vh;
     transition: var(--transition-time) ease-in-out;
 }
 
-main h2 {
+main section {
+    padding: 1em;
+    border-radius: calc(50px / 3);
+    overflow: hidden;
+    background-color: var(--white);
+    width: 45%;
+}
+
+main .main-title  {
+    position: relative;
+    display: flex;
+    justify-content: start;
+    height: 100px;
+    margin-bottom: 2em;
+}
+
+main .main-title {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+main .main-title h2 {
+    color: var(--green);
+    margin: 0 0 .5em 0;
+}
+
+main h3 {
+    color: var(--green);
+    margin: 0 0 .5em 0;
+}
+
+main .main-title p {
     margin: 0;
+    font-weight: 300;
+}
+
+main .profile-pic {
+    position: absolute;
+    top:0;
+    right: 0;
+    height: 100%;
+}
+
+main .profile-pic img {
+    height: inherit
 }
 
 main.show {
     display: block;
+}
+
+
+/*********************************
+MAIN - ACCOUNT
+*********************************/
+.account .profile-infos {
+    
+}
+
+.account .profile-infos span {
+    display: block;
+    margin: .5em 0;
+}
+
+.account .artwork {
+    display: flex;
+    flex-wrap: wrap;
+    width: calc(300px + 1em * 2)
+}
+
+.account .artwork div {
+    background-size: cover;
+    width: calc(300px / 3);
+    height: calc(300px / 3);
 }
